@@ -49,13 +49,25 @@
 		public function run()
 		{
 			if ($this->match())
-			{
-				$controller = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller.php';
-				if (class_exists($controller)) 
+			{	
+				// Занесение в переменную $path пути к вызываемому контроллеру
+				$path = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller';
+
+				// Проверка на существование контроллера
+				if (class_exists($path)) 
 				{
-					//
+					// Занесение в переменную $action вызываемого действия
+					$action = $this->params['action'].'Action';
+					// Проверка на существование действия в классе
+					if(method_exists($path,$action))
+					{
+						$controller = new $path($this->params);
+						$controller->$action();
+					} else {
+						echo 'Не найдено действие: '.$action;
+					}
 				} else {
-					echo 'Не найден'.$controller;
+					echo 'Не найден контроллер: '.$path;
 				}
 			} else {
 				echo 'Маршрут не найден';
