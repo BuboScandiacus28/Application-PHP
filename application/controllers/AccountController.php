@@ -6,14 +6,18 @@
 	
 	class AccountController extends Controller
 	{
+		
+		public function before() {
+			$this->view->layout = 'default';
+		}
 
 		public function loginAction()
 		{
-			echo 'Страница входа';
+			$this->view->render('Вход');
 		}
 
 		public function registerAction()
 		{
-			echo 'Страница регистрации';
+			$this->view->render('Регистрация');
 		}
 	}
