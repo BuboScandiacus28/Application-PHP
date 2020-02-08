@@ -1,6 +1,8 @@
 <?php 
 
 	namespace application\core;
+
+	use application\core\View;
 	
 	class Router 
 	{
@@ -64,13 +66,16 @@
 						$controller = new $path($this->params);
 						$controller->$action();
 					} else {
-						echo 'Не найдено действие: '.$action;
+						// Вызывает страницу с кодом ответа
+						View::errorCode(404);
 					}
 				} else {
-					echo 'Не найден контроллер: '.$path;
+					// Вызывает страницу с кодом ответа
+					View::errorCode(404);
 				}
 			} else {
-				echo 'Маршрут не найден';
+				// Вызывает страницу с кодом ответа
+				View::errorCode(404);
 			}
 		}
 	}

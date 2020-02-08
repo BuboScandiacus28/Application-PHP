@@ -6,13 +6,10 @@
 	
 	class AccountController extends Controller
 	{
-		
-		public function before() {
-			$this->view->layout = 'default';
-		}
 
 		public function loginAction()
 		{
+			$this->view->redirect('https://google.com');
 			$this->view->render('Вход');
 		}
 

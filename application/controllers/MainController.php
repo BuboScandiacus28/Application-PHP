@@ -9,7 +9,12 @@
 
 		public function indexAction()
 		{
-			$this->view->render('Главная страница');
+			$vars = [
+				'name' => 'Щегол',
+				'age' => 'Старичок',
+				'array' => [1, 2, 3],
+			];
+			$this->view->render('Главная страница', $vars);
 		}
 
 	}
