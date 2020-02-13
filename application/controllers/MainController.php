@@ -3,18 +3,20 @@
 	namespace application\controllers;
 
 	use application\core\Controller;
+	use application\lib\Db;
 	
 	class MainController extends Controller
 	{
 
 		public function indexAction()
 		{
-			$vars = [
-				'name' => 'Щегол',
-				'age' => 'Старичок',
-				'array' => [1, 2, 3],
-			];
-			$this->view->render('Главная страница', $vars);
+			// Создание экземпляра класса БД
+			$db = new Db;
+
+			$data = $db->row('SELECT * FROM news');
+			debug($data);
+
+			$this->view->render('Главная страница');
 		}
 
 	}
