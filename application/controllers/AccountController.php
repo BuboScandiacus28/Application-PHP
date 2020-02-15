@@ -9,7 +9,10 @@
 
 		public function loginAction()
 		{
-			$this->view->redirect('https://google.com');
+			if (!empty($_POST))
+			{
+				$this->view->location('/');
+			}
 			$this->view->render('Вход');
 		}
 
