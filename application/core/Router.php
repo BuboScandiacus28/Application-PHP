@@ -33,8 +33,8 @@
 		public function match() 
 		{
 			// Запись в переменную $url страницы на которой сейчас находится пользователь  
-			$url = trim($_SERVER['REQUEST_URI'],'/'); 
-
+			$url = explode('/?', trim($_SERVER['REQUEST_URI'],'/'), 2)[0];
+			//debug($url);
 			foreach ($this->routes as $route => $params)
 			{
 				// Проверка $url на соответствие одному из маршрутов $route 
@@ -61,17 +61,17 @@
 					// Занесение в переменную $action вызываемого действия
 					$action = $this->params['action'].'Action';
 					// Проверка на существование действия в классе
-					if(method_exists($path,$action))
+					if(method_exists($path, $action))
 					{
 						$controller = new $path($this->params);
 						$controller->$action();
 					} else {
 						// Вызывает страницу с кодом ответа
-						View::errorCode(404);
+						View::errorCode(403);
 					}
 				} else {
 					// Вызывает страницу с кодом ответа
-					View::errorCode(404);
+					View::errorCode(403);
 				}
 			} else {
 				// Вызывает страницу с кодом ответа

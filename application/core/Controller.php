@@ -17,17 +17,16 @@
 			$this->route = $route;
 			// Создание экземпляра класса View и занесение в конструктор сетевого маршрута
 			$this->view = new View($route);
-			//$this->before();
-			//debug($route);
 			$this->model = $this->loadModel($route['controller']);
 		}
 
+		// Загрузка модели
 		public function loadModel($name) 
 		{
 			$path = 'application\models\\'.ucfirst($name);
-			//debug($path);
 			if (class_exists($path))
 			{
+				//debug($path);
 				return new $path;
 			}
 		}

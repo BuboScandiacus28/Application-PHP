@@ -19,4 +19,19 @@
 			'action' => 'register',
 		],
 
+		'component/show' => [
+			'controller' => 'component',
+			'action' => 'show',
+		],
+
+		'component/back' => [
+			'controller' => 'component',
+			'action' => 'back',
+		],
+
+		'component/add' => [
+			'controller' => 'component',
+			'action' => 'add',
+		],
+
 	];

@@ -28,12 +28,17 @@
 
 				foreach ($params as $key => $val)
 				{
+				
+					//echo '<p>'.$key.' => '.$val.'</p>';
 					//bindValue - связывает параметр с заданным значением
 					$stmt->bindValue(':'.$key, $val);
 				}
+				//debug($stmt);
 			}
+			//exit;
 			//Запускает подготовленный запрос
 			$stmt->execute();
+			//debug($stmt);
 			return $stmt;
 		}
 		

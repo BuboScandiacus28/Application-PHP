@@ -2,7 +2,7 @@
 	return 
 	[
 		'host' => 'application-php',
-		'dbname' => 'test',
+		'dbname' => 'bdsklad',
 		'user' => 'root',
 		'password' => '',
 	];

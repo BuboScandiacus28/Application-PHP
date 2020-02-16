@@ -22,6 +22,7 @@
 		// title - заголовок
 		public function render($title, $vars = [])
 		{
+			//debug($vars);
 			extract($vars);
 			$path = 'application/views/'.$this->path.'.php';
 			// Проверка на существование вызываемого Вида

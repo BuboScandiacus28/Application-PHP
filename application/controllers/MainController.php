@@ -14,7 +14,7 @@
 			$vars = [
 				'news' => $result, 
 			];
-			$this->view->render('Главная страница',$vars);
+			$this->view->render('Главная страница', $vars);
 		}
 
 	}

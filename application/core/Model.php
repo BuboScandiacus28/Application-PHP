@@ -12,5 +12,6 @@
 		public function __construct()
 		{
 			$this->db = new Db; 
+			//echo htmlspecialchars($_GET['cod'].' - '.$_GET['lvl']);
 		}
 	}
